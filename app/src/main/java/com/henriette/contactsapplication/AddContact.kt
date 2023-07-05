@@ -40,11 +40,12 @@ class AddContact : AppCompatActivity() {
 //        if (!error) {
 //            val addedName = addName
 //        }
-        if(!error){
+        if (!error) {
             Toast.makeText(
-                this,"Contact added Successfully",Toast.LENGTH_LONG
+                this, "Contact added Successfully", Toast.LENGTH_LONG
             )
                 .show()
+            finish()
 
         }
 
