@@ -1,23 +1,34 @@
-package com.henriette.contactsapplication
+package com.henriette.contactsapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.activity.viewModels
+import com.henriette.contactsapplication.R
 import com.henriette.contactsapplication.databinding.ActivityAddContactBinding
-import com.henriette.contactsapplication.databinding.ActivityMainBinding
+import com.henriette.contactsapplication.model.Contact
+import com.henriette.contactsapplication.viewmodel.ContactsViewModel
 
 class AddContact : AppCompatActivity() {
     lateinit var binding: ActivityAddContactBinding
+    val contactViewModel: ContactsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnSave.setOnClickListener {
             validateAddContact()
         }
+
+
     }
+
 
     fun validateAddContact() {
         clearErrors()
@@ -26,21 +37,22 @@ class AddContact : AppCompatActivity() {
         val addEmail = binding.etAddEmail.text.toString()
         var error = false
         if (addName.isBlank()) {
-            binding.etAddName.error = "A Name is needed to proceed"
+            binding.etAddName.error = getString(R.string.name_required)
+
             error = true
         }
         if (addPhoneNumber.isBlank()) {
-            binding.etAddPhoneNumber.error = "Name is needed to Proceed"
+            binding.etAddPhoneNumber.error = getString(R.string.number_required)
             error = true
         }
         if (addEmail.isBlank()) {
-            binding.etAddEmail.error = "Add an Email to continue"
+            binding.etAddEmail.error = getString(R.string.email_required)
             error = true
         }
-//        if (!error) {
-//            val addedName = addName
-//        }
+
         if (!error) {
+            val newContact=Contact(0, avatar ="",addName,addPhoneNumber,addEmail,)
+            contactViewModel.saveContact(newContact)
             Toast.makeText(
                 this, "Contact added Successfully", Toast.LENGTH_LONG
             )

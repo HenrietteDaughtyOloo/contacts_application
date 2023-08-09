@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Contacts Application</string>
+    <string name="name_required">A Name is needed to proceed</string>
+    <string name="number_required">Name is needed to Proceed</string>
+    <string name="email_required">Add an Email to continue</string>
 </resources>
