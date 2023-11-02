@@ -3,4 +3,8 @@
     <string name="name_required">A Name is needed to proceed</string>
     <string name="number_required">Name is needed to Proceed</string>
     <string name="email_required">Add an Email to continue</string>
+    <string name="name">Name</string>
+    <string name="number">Number</string>
+    <string name="save_contact">Save Contact</string>
+    <string name="abc_gmail_com">abc@gmail.com</string>
 </resources>

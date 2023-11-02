@@ -36,12 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:clickable="true"
+        app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.97"
         app:srcCompat="@drawable/baseline_person_add_alt_1_24" />
 
     <TextView

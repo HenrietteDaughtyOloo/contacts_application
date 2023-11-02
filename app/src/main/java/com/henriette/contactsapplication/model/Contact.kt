@@ -8,7 +8,7 @@ data class Contact(
     @PrimaryKey(autoGenerate = true)
     var contactId: Int,
     var avatar: String,
-    var dislayName: String,
+    var displayName: String,
     var phoneNumber: String,
     val emailAddress: String,
 )

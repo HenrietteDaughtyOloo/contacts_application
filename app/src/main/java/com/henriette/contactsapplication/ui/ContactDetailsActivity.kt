@@ -1,8 +1,12 @@
 package com.henriette.contactsapplication.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import com.henriette.contactsapplication.R
 import com.henriette.contactsapplication.databinding.ActivityContactDetailsBinding
@@ -10,6 +14,7 @@ import com.henriette.contactsapplication.model.Contact
 import com.henriette.contactsapplication.viewmodel.ContactsViewModel
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import java.io.File
 
 class ContactDetailsActivity : AppCompatActivity() {
     var contactId = 0
@@ -39,7 +44,7 @@ class ContactDetailsActivity : AppCompatActivity() {
     }
 
     private fun displayContactDetails(contact: Contact) {
-        binding.tvName.text= contact.dislayName
+        binding.tvName.text= contact.displayName
         binding.tvPhoneNumber.text = contact.phoneNumber
         binding.tvEmail.text = contact.emailAddress
         if (!contact.avatar.isNullOrEmpty()) {
@@ -51,4 +56,7 @@ class ContactDetailsActivity : AppCompatActivity() {
                 .transform(CropCircleTransformation())
                 .into(binding.ivImage)
         }
-    }}
+    }
+
+
+}

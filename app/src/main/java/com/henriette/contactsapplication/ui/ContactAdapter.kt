@@ -12,6 +12,7 @@ import com.henriette.contactsapplication.databinding.ContactListItemBinding
 import com.henriette.contactsapplication.model.Contact
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import java.io.File
 
 class ContactAdapter(var contactList: List<Contact>, var context: Context) :
     RecyclerView.Adapter<ContactViewHolder>() {
@@ -25,7 +26,7 @@ class ContactAdapter(var contactList: List<Contact>, var context: Context) :
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         var currentContact = contactList.get(position)
         var binding = holder.binding
-        binding.tvDisplayName.text = currentContact.dislayName
+        binding.tvDisplayName.text = currentContact.displayName
         binding.tvPhoneNumber.text = currentContact.phoneNumber
         binding.tvEmail.text = currentContact.emailAddress
 
@@ -33,8 +34,9 @@ class ContactAdapter(var contactList: List<Contact>, var context: Context) :
         if (currentContact.avatar.isNotBlank()) {
             Picasso
                 .get()
-                .load(currentContact.avatar)
-                .placeholder(R.drawable.boaz)
+                .load(File(currentContact.avatar))
+                .resize(80, 80)
+//                .placeholder(R.drawable.boaz)
                 .transform(CropCircleTransformation())
                 .into(binding.ivAvatar)
         }

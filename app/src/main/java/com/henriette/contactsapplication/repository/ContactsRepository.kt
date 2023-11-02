@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.henriette.contactsapplication.viewmodel.MyContactsApp
 import com.henriette.contactsapplication.database.ContactsDb
 import com.henriette.contactsapplication.model.Contact
-//import com.henriette.contactsapplication.viewmodel.MyContactsApp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
